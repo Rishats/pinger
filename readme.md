@@ -14,33 +14,6 @@ This repository contains a simple Go-based pinger service that monitors multiple
 
 ---
 
-## Building and Pushing the Docker Image
-
-### 1. Clone the Repository
-```sh
-git clone https://github.com/Rishats/pinger.git
-cd pinger
-```
-
-### 2. Build the Docker Image
-```sh
-docker build -t skeletondocker/pinger:latest .
-docker tag skeletondocker/pinger:latest skeletondocker/pinger:v1.0.0
-```
-
-### 3. Log in to DockerHub
-```sh
-docker login
-```
-
-### 4. Push the Images to DockerHub
-```sh
-docker push skeletondocker/pinger:latest
-docker push skeletondocker/pinger:v1.0.0
-```
-
----
-
 ## Running Locally with Docker
 To test the container locally:
 ```sh
@@ -156,5 +129,35 @@ spec:
    ```
 
 ---
+
+---
+## Building and Pushing the Docker Image
+
+### 1. Clone the Repository
+```sh
+git clone https://github.com/Rishats/pinger.git
+cd pinger
+```
+
+### 2. Build the Docker Image
+```sh
+docker build -t yourdockerhubusername/pinger:latest .
+docker tag yourdockerhubusername/pinger:latest yourdockerhubusername/pinger:v1.0.0
+```
+
+### 3. Log in to DockerHub
+```sh
+docker login
+```
+
+### 4. Push the Images to DockerHub
+```sh
+docker push yourdockerhubusername/pinger:latest
+docker push yourdockerhubusername/pinger:v1.0.0
+```
+
+---
+
+
 
 This setup ensures your `pinger` service is running inside Kubernetes and exposing metrics properly. 🚀
