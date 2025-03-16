@@ -1,0 +1,19 @@
+global:
+  scrape_interval: 15s  # Как часто собирать метрики
+
+scrape_configs:
+  - job_name: 'pinger'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['pinger:2112']  # Пример для локального хоста в Docker
+    metrics_path: '/metrics'
+    metric_relabel_configs:
+    - source_labels: [__name__]
+      regex: 'ping_duration_seconds'
+      action: keep
+
+remote_write:
+  - url: "https://prometheus-prod-24-prod-eu-west-2.grafana.net/api/prom/push"
+    basic_auth:
+      username: "1934246"
+      password: "your_token"

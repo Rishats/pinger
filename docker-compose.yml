@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  pinger:
+    build:
+      context: .  # Build from the current directory
+    ports:
+      - "2112:2112"  # Expose port 2112 for metrics
+    restart: always
+    environment:
+      - PINGER_DOMAINS=vk.com,google.com,yandex.ru,api.telegram.org
+
