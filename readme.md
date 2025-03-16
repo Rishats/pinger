@@ -1,11 +1,7 @@
-Here is the `README.md` file and the Kubernetes manifest in a single response.
-
-### `README.md`:
 This document explains how to build, tag, push the Docker container to DockerHub, and deploy it using Kubernetes.
 
 ---
 
-```markdown
 # Pinger Service
 
 This repository contains a simple Go-based pinger service that monitors multiple hosts and exposes metrics for Prometheus.
@@ -22,7 +18,7 @@ This repository contains a simple Go-based pinger service that monitors multiple
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/yourusername/pinger.git
+git clone https://github.com/Rishats/pinger.git
 cd pinger
 ```
 

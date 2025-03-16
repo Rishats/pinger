@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pinger-deployment
+  labels:
+    app: pinger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pinger
+  template:
+    metadata:
+      labels:
+        app: pinger
+    spec:
+      containers:
+        - name: pinger
+          image: skeletondocker/pinger:latest
+          ports:
+            - containerPort: 2112
+          env:
+            - name: PINGER_DOMAINS
+              value: "vk.com,google.com,megaline.kg,aknet.kg,yandex.ru"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pinger-service
+spec:
+  selector:
+    app: pinger
+  ports:
+    - protocol: TCP
+      port: 2112
+      targetPort: 2112
+  type: ClusterIP
